@@ -6,6 +6,7 @@ import React, { useEffect } from "react";
 import Button from "@mui/material/Button";
 import { useForm, useFormContext } from "react-hook-form";
 import { FormContainer } from "react-hook-form-mui";
+import { TextFieldElement, CheckboxElement } from "react-hook-form-mui";
 
 export function AutoForm({ values, defaultValues, onSubmit, children }) {
   const methods = useForm({ defaultValues });
@@ -46,6 +47,9 @@ export const makeFieldElements = (schema) =>
     .filter(([k, v]) => k !== "id")
     .map(([k, v]) => [
       k,
+      v,
       { boolean: CheckboxElement }[typeof v] ?? TextFieldElement,
     ])
-    .map(([k, FieldElement]) => <FieldElement name={k} label={k} required />);
+    .map(([k, v, FieldElement]) => (
+      <FieldElement key={k} type={typeof v} name={k} label={k} required />
+    ));
