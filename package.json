@@ -2,13 +2,17 @@
   "name": "@dwidge/autoform",
   "version": "0.1.2",
   "description": "",
+  "main": "./build/lib/index.js",
   "exports": {
-    "./*": "./lib/*.tsx"
+    ".": "./build/lib/index.js",
+    "./*": "./build/lib/*.js"
   },
   "files": [
+    "build/lib",
     "lib"
   ],
   "scripts": {
+    "prepare": "rimraf build && tsc",
     "dev": "servey src=src/index.tsx env=REACT_APP_ dir=public port=3000",
     "build": "buildy src=src/index.tsx env=REACT_APP_ dir=public out=build",
     "start": "pnpx http-server build -o -p3000",
@@ -19,20 +23,23 @@
   "license": "BSL-1.0",
   "devDependencies": {
     "@dwidge/buildy": "^0.1.4",
-    "@types/react": "^18.0.34",
-    "@types/react-dom": "^18.0.11",
-    "@types/react-syntax-highlighter": "^15.5.7",
-    "@types/styled-components": "^5.1.26"
+    "@dwidge/react-lib": "^0.1.2",
+    "@mui/icons-material": "^5.15.14",
+    "@mui/x-date-pickers": "^7.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/styled-components": "^5.1.26",
+    "rimraf": "^5.0.5",
+    "styled-components": "^6.1.8",
+    "typescript": "^5.4.3"
   },
   "peerDependencies": {
-    "@dwidge/react-lib": "^0.1.2",
     "@mui/material": "^5.11.5",
     "@mui/styled-engine-sc": "^5.11.11",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.44.2",
-    "react-hook-form-mui": "^6.1.1",
-    "styled-components": "^5.3.9"
+    "react-hook-form-mui": "^6.1.1"
   },
   "overrides": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc"

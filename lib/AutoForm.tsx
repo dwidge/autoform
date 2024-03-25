@@ -3,12 +3,20 @@
 // https://www.boost.org/LICENSE_1_0.txt
 
 import React, { useEffect } from "react";
-import Button from "@mui/material/Button";
-import { useForm, useFormContext } from "react-hook-form";
+import { Button } from "@mui/material";
+import { DefaultValues, useForm, useFormContext } from "react-hook-form";
 import { FormContainer } from "react-hook-form-mui";
-import { TextFieldElement, CheckboxElement } from "react-hook-form-mui";
 
-export function AutoForm({ values, defaultValues, onSubmit, children }) {
+export function AutoForm<T extends Record<string, any>>({
+  values,
+  defaultValues,
+  onSubmit,
+  children,
+}: React.PropsWithChildren<{
+  values: T;
+  defaultValues: DefaultValues<T>;
+  onSubmit: (v: T) => void;
+}>) {
   const methods = useForm({ defaultValues });
   useEffect(() => {
     if (values) methods.reset(values);
@@ -17,10 +25,11 @@ export function AutoForm({ values, defaultValues, onSubmit, children }) {
 
   return (
     <FormContainer
-      formContext={{ ...methods, defaultValues }}
+      formContext={methods}
       FormProps={{ id: defaultValues?.id }}
       onSuccess={(data) => {
         onSubmit(data);
+        methods.reset(defaultValues);
       }}
     >
       {children}
@@ -28,28 +37,16 @@ export function AutoForm({ values, defaultValues, onSubmit, children }) {
   );
 }
 
-export function ResetButton() {
-  const { reset, values } = useFormContext();
+export function ResetButton({}) {
+  const c = useFormContext();
 
   return (
     <Button
       onClick={() => {
-        reset(values);
+        c.reset(c.formState.defaultValues);
       }}
     >
       Reset
     </Button>
   );
 }
-
-export const makeFieldElements = (schema) =>
-  Object.entries(schema)
-    .filter(([k, v]) => k !== "id")
-    .map(([k, v]) => [
-      k,
-      v,
-      { boolean: CheckboxElement }[typeof v] ?? TextFieldElement,
-    ])
-    .map(([k, v, FieldElement]) => (
-      <FieldElement key={k} type={typeof v} name={k} label={k} required />
-    ));
