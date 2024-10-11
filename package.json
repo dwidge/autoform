@@ -2,6 +2,12 @@
   "name": "@dwidge/autoform",
   "version": "0.1.3",
   "description": "",
+  "author": "DWJ",
+  "license": "BSL-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwidge/autoform.git"
+  },
   "main": "./build/lib/index.js",
   "exports": {
     ".": "./build/lib/index.js",
@@ -18,12 +24,9 @@
     "start": "pnpx http-server build -o -p3000",
     "test": "buildy src=lib/test.js out=build && node build/test.js"
   },
-  "keywords": [],
-  "author": "DWJ",
-  "license": "BSL-1.0",
   "devDependencies": {
-    "@dwidge/buildy": "^0.1.4",
-    "@dwidge/react-lib": "^0.1.2",
+    "@dwidge/buildy": "^0.1.8",
+    "@dwidge/react-lib": "^0.1.8",
     "@mui/icons-material": "^5.15.14",
     "@mui/x-date-pickers": "^7.0.0",
     "@types/react": "^18.2.0",
@@ -46,5 +49,12 @@
   },
   "resolutions": {
     "@mui/styled-engine": "npm:@mui/styled-engine-sc"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "packageManager": "pnpm@9.7.1",
+  "engines": {
+    "node": ">=20"
   }
 }
