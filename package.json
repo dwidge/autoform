@@ -1,6 +1,6 @@
 {
   "name": "@dwidge/autoform",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "",
   "author": "DWJ",
   "license": "BSL-1.0",
@@ -8,17 +8,17 @@
     "type": "git",
     "url": "git+https://github.com/dwidge/autoform.git"
   },
-  "main": "./build/lib/index.js",
+  "main": "./dist/lib/index.js",
   "exports": {
-    ".": "./build/lib/index.js",
-    "./*": "./build/lib/*.js"
+    ".": "./dist/lib/index.js",
+    "./*": "./dist/lib/*.js"
   },
   "files": [
-    "build/lib",
+    "dist/lib",
     "lib"
   ],
   "scripts": {
-    "prepare": "rimraf build && tsc",
+    "prepare": "rimraf dist && tsc",
     "dev": "servey src=src/index.tsx env=REACT_APP_ dir=public port=3000",
     "build": "buildy src=src/index.tsx env=REACT_APP_ dir=public out=build",
     "start": "pnpx http-server build -o -p3000",
@@ -26,7 +26,7 @@
   },
   "devDependencies": {
     "@dwidge/buildy": "^0.1.8",
-    "@dwidge/react-lib": "^0.1.9",
+    "@dwidge/react-lib": "^0.1.10",
     "@mui/icons-material": "^6.1.3",
     "@mui/x-date-pickers": "^7.20.0",
     "@types/react": "^19.0.14",
