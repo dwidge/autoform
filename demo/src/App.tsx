@@ -1,10 +1,10 @@
-import React from "react";
-import styled from "styled-components";
-import { createTheme, ThemeProvider } from "@mui/material/styles";
-import { Center, Vertical } from "@dwidge/react-lib/Flex";
 import { AutoForm } from "@dwidge/autoform";
-import { SelectElement, TextFieldElement } from "react-hook-form-mui";
+import { Center, Vertical } from "@dwidge/react-lib";
 import { Stack } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import React from "react";
+import { SelectElement, TextFieldElement } from "react-hook-form-mui";
+import styled from "styled-components";
 
 const theme = createTheme();
 
