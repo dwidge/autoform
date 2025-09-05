@@ -1,6 +1,6 @@
 {
   "name": "@dwidge/autoform-demo",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "",
   "author": "DWJ",
   "license": "BSL-1.0",
@@ -22,16 +22,16 @@
   },
   "devDependencies": {
     "@dwidge/buildy": "^0.1.8",
-    "@dwidge/autoform": "^0.1.6",
-    "@dwidge/react-lib": "^0.1.11",
+    "@dwidge/autoform": "^0.1.7",
+    "@dwidge/react-lib": "^0.1.12",
     "@types/react": "^19.0.14",
     "@types/react-dom": "^19.0.0",
     "http-server": "^14.1.1",
     "typescript": "^5.8.3"
   },
   "peerDependencies": {
-    "@dwidge/react-classy": "^0.1.4",
-    "@dwidge/react-lib": "^0.1.11",
+    "@dwidge/react-classy": "^0.1.5",
+    "@dwidge/react-lib": "^0.1.12",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
